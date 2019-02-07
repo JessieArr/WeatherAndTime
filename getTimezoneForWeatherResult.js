@@ -1,5 +1,5 @@
-const restClient = require('node-rest-client').Client;
-const client = new restClient();
+const restClient = require('node-rest-client').Client
+const client = new restClient()
 
 function getTimezoneForWeatherResult(location, weatherResult){
   const latitude = weatherResult.coord.lat
@@ -8,14 +8,14 @@ function getTimezoneForWeatherResult(location, weatherResult){
     console.log(location.locationName + " current time and weather:")
     if(response.statusCode != 200){
       console.log("Error looking up timezone data:")
-      console.log(response);
+      console.log(response)
     }else{
       console.log("Current time: " + data.result.formatted)
       console.log("Weather: " + weatherResult.weather[0].description)
       console.log("Temperature (C):" + convertKelvinTemperatureToCentigrade(weatherResult.main.temp))
     }
   })
-  return result;
+  return result
 }
 
 function convertKelvinTemperatureToCentigrade(kelvinTemperature){
