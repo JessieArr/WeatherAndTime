@@ -11,10 +11,15 @@ function getTimezoneForWeatherResult(location, weatherResult){
       console.log(response);
     }else{
       console.log("Current time: " + data.result.formatted)
-      console.log(weatherResult.weather[0].description)  
+      console.log("Weather: " + weatherResult.weather[0].description)
+      console.log("Temperature (C):" + convertKelvinTemperatureToCentigrade(weatherResult.main.temp))
     }
   })
   return result;
+}
+
+function convertKelvinTemperatureToCentigrade(kelvinTemperature){
+  return kelvinTemperature - 273.15
 }
 
 module.exports = getTimezoneForWeatherResult
